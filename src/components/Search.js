@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Search extends React.Component {
-  state = { term: '', product: '' };
+  state = { term: '', product: 'commerce' };
 
   onInputChangeText = event => {
     event.preventDefault();
