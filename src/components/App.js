@@ -4,16 +4,19 @@ import discovery from '../apis/discovery';
 
 class App extends React.Component {
   onTermSubmit = async (term, product) => {
-    const response = await discovery.get('/query', {
-      params: {
-        natural_language_query: term,
-        filter: `product::"${product}"`,
-        highlight: true
+    const response = await discovery.get(
+      '/query?count=3&deduplicate=false&highlight=true&passages=true&passages.count=3',
+      {
+        params: {
+          natural_language_query: term,
+          filter: `product::"${product}"`,
+          highlight: true
+        }
       }
-    });
+    );
 
     this.setState({
-      videos: response.data.results
+      results: response.data.results
       // selectedVideo: response.data.items[0]
     });
   };

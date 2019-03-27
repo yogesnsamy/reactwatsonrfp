@@ -17,6 +17,7 @@ class Search extends React.Component {
     event.preventDefault();
     console.log('form submit');
     this.props.onFormSubmit(this.state.term, this.state.product);
+    // this.setState({ term: event.target.value });
   };
   render() {
     return (
@@ -24,7 +25,6 @@ class Search extends React.Component {
         <form className='ui form' onSubmit={this.onFormSubmit}>
           <div className='ui input focus field'>
             <select onChange={this.onInputChangeProduct}>
-              <option value=''>Product</option>
               <option value='commerce'>Commerce</option>
               <option value='websphere-portal'>WebSphere Portal</option>
             </select>
@@ -37,7 +37,6 @@ class Search extends React.Component {
               type='text'
               placeholder='Search...'
             />
-            <i className='inverted circular search link icon' />
           </div>
         </form>
       </div>
