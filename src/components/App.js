@@ -24,11 +24,19 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div className='ui raised very padded text container segment'>
-        <h2 className='ui header'>RFP Automation with Watson Discovery</h2>
-        <Search onFormSubmit={this.onTermSubmit} />
-        <AnswersList answers={this.state.results} />
-        <p />
+      <div>
+        <br />
+        <div className='ui container'>
+          <div className='ui segment'>
+            <h3 class='ui block header'>
+              RFP Automation with Watson Discovery
+            </h3>
+
+            <Search onFormSubmit={this.onTermSubmit} />
+            <AnswersList answers={this.state.results} />
+            <p />
+          </div>
+        </div>
       </div>
     );
   }

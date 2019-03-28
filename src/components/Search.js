@@ -23,20 +23,23 @@ class Search extends React.Component {
     return (
       <div>
         <form className='ui form' onSubmit={this.onFormSubmit}>
-          <div className='ui input focus field'>
-            <select onChange={this.onInputChangeProduct}>
-              <option value='commerce'>Commerce</option>
-              <option value='websphere-portal'>WebSphere Portal</option>
-            </select>
-          </div>
-
-          <div className='ui icon input'>
-            <input
-              value={this.state.term}
-              onChange={this.onInputChangeText}
-              type='text'
-              placeholder='Search...'
-            />
+          <div class='field'>
+            <div class='fields'>
+              <div class='four wide field'>
+                <select onChange={this.onInputChangeProduct}>
+                  <option value='commerce'>Commerce</option>
+                  <option value='websphere-portal'>WebSphere Portal</option>
+                </select>
+              </div>
+              <div class='twelve wide field'>
+                <input
+                  value={this.state.term}
+                  onChange={this.onInputChangeText}
+                  type='text'
+                  placeholder='Search...'
+                />
+              </div>
+            </div>
           </div>
         </form>
       </div>
