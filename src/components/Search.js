@@ -15,7 +15,6 @@ class Search extends React.Component {
 
   onFormSubmit = event => {
     event.preventDefault();
-    console.log('form submit');
     this.props.onFormSubmit(this.state.term, this.state.product);
     // this.setState({ term: event.target.value });
   };
@@ -25,7 +24,7 @@ class Search extends React.Component {
         <form className='ui form' onSubmit={this.onFormSubmit}>
           <div className='field'>
             <div className='fields'>
-              <div className='four wide field'>
+              <div className='five wide field'>
                 <select onChange={this.onInputChangeProduct}>
                   <option value='commerce'>Commerce</option>
                   <option value='websphere-portal'>WebSphere Portal</option>

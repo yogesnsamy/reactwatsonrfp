@@ -5,7 +5,7 @@ import AnswersList from './AnswersList';
 // import Promise from './Promise';
 
 class App extends React.Component {
-  state = { results: [], searching: 'notyet' };
+  state = { results: [], searching: 'notyet', selectedAnswer: null };
 
   onTermSubmit = async (term, product) => {
     this.setState({ searching: 'currently' });
@@ -26,6 +26,29 @@ class App extends React.Component {
       // selectedVideo: response.data.items[0]
     });
   };
+
+  // onAnswerSelect = answer => {
+  //                              this.setState({
+  //                                selectedAnswer:
+  //                                  answer.answer
+  //                              });
+  //                              //--------
+
+  onAnswerSelect = answer => {
+    this.setState({
+      selectedAnswer: answer.answer
+    });
+    const el = document.createElement('textarea');
+    el.value = answer.answer;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    return;
+  };
+  //-----------
+  //  };
+
   render() {
     return (
       <div>
@@ -39,9 +62,10 @@ class App extends React.Component {
             <AnswersList
               answers={this.state.results}
               searching={this.state.searching}
+              onAnswerSelect={this.onAnswerSelect}
             />
-            <p />
           </div>
+          <br />
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import AnswerItem from './AnswerItem';
 
-const AnswersList = ({ answers, searching }) => {
+const AnswersList = ({ answers, searching, onAnswerSelect }) => {
   if (answers.length === 0 && searching === 'notyet') {
     return (
       <div className='ui positive message'>
@@ -27,7 +27,13 @@ const AnswersList = ({ answers, searching }) => {
     );
   }
   const renderedList = answers.map(answer => {
-    return <AnswerItem answer={answer} key={answer.id} />;
+    return (
+      <AnswerItem
+        answer={answer}
+        key={answer.id}
+        onAnswerSelect={onAnswerSelect}
+      />
+    );
   });
 
   return <div className='ui relaxed divided list'>{renderedList}</div>;
