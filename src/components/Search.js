@@ -23,15 +23,15 @@ class Search extends React.Component {
     return (
       <div>
         <form className='ui form' onSubmit={this.onFormSubmit}>
-          <div class='field'>
-            <div class='fields'>
-              <div class='four wide field'>
+          <div className='field'>
+            <div className='fields'>
+              <div className='four wide field'>
                 <select onChange={this.onInputChangeProduct}>
                   <option value='commerce'>Commerce</option>
                   <option value='websphere-portal'>WebSphere Portal</option>
                 </select>
               </div>
-              <div class='twelve wide field'>
+              <div className='twelve wide field'>
                 <input
                   value={this.state.term}
                   onChange={this.onInputChangeText}

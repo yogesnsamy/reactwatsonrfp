@@ -2,10 +2,13 @@ import React from 'react';
 import Search from './Search';
 import discovery from '../apis/discovery';
 import AnswersList from './AnswersList';
+// import Promise from './Promise';
 
 class App extends React.Component {
-  state = { results: [] };
+  state = { results: [], searching: 'notyet' };
+
   onTermSubmit = async (term, product) => {
+    this.setState({ searching: 'currently' });
     const response = await discovery.get(
       '/query?count=3&deduplicate=false&highlight=true&passages=true&passages.count=3',
       {
@@ -16,9 +19,10 @@ class App extends React.Component {
         }
       }
     );
-
+    const data = await response.data.results;
     this.setState({
-      results: response.data.results
+      results: data,
+      searching: 'done'
       // selectedVideo: response.data.items[0]
     });
   };
@@ -28,12 +32,14 @@ class App extends React.Component {
         <br />
         <div className='ui container'>
           <div className='ui segment'>
-            <h3 class='ui block header'>
+            <h3 className='ui block header'>
               RFP Automation with Watson Discovery
             </h3>
-
             <Search onFormSubmit={this.onTermSubmit} />
-            <AnswersList answers={this.state.results} />
+            <AnswersList
+              answers={this.state.results}
+              searching={this.state.searching}
+            />
             <p />
           </div>
         </div>

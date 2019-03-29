@@ -3,20 +3,20 @@ import React from 'react';
 
 const AnswerItem = ({ answer }) => {
   return (
-    <div className='ui raised segment'>
+    <div className='ui positive raised message'>
       <div className='ui relaxed divided list'>
         <div className='item'>
           <div className='content'>
             <p className='header'> {answer.question}</p>
-            <div class='ui label'>
+            <div className='ui label right'>
               Confidence
-              <div class='detail'>
+              <div className='detail'>
                 {answer.result_metadata.confidence.toFixed(2)}
               </div>
             </div>
-            <div class='ui label'>
+            <div className='ui label'>
               Score
-              <div class='detail'>
+              <div className='detail'>
                 {answer.result_metadata.score.toFixed(2)}
               </div>
             </div>
